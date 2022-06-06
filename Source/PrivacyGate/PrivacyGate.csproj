@@ -4,7 +4,7 @@
     <PackageReleaseNotes>
     </PackageReleaseNotes>
     <Version>0.0.0-localbuild</Version>
-    <Authors>Brian Chavez</Authors>
+    <Authors>privacyshore</Authors>
     <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
     <CodeAnalysisRuleSet>PrivacyGate.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -14,11 +14,11 @@
     <AssemblyName>PrivacyGate</AssemblyName>
     <PackageId>PrivacyGate</PackageId>
     <PackageTags>bitcoin;ethereum;litecoin;bitcoin-cash;privacygate;api;cryptocurrency;payment;money;merchant;checkout;cart;gateway;bank;crypto;</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/Docs/privacygate.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/privacyshore/PrivacyGate-csharp</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/privacyshore/PrivacyGate-dotnet/master/Docs/privacygate.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/privacyshore/PrivacyGate-dotnet</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/privacyshore/PrivacyGate-dotnet/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/privacyshore/PrivacyGate-csharp</RepositoryUrl>
+    <RepositoryUrl>https://github.com/privacyshore/PrivacyGate-dotnet</RepositoryUrl>
     <!--Source Link Settings-->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>false</EmbedUntrackedSources>

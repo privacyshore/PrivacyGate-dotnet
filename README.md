@@ -72,7 +72,7 @@ Server.Redirect(response.Data.HostedUrl);
 ```
 When the customer is redirected to the `HostedUrl` checkout page on **PrivacyGate** the customer can pick their preference of cryptocurrency to pay with as shown below:  
 
-<img src="https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/Docs/privacygate-node-sample.gif" />
+<img src="https://raw.githubusercontent.com/privacyshore/PrivacyGate-dotnet/master/Docs/privacygate-node-sample.gif" />
 
 It's important to keep in mind that the customer has **15 minutes** to complete the payment; otherwise the payment will fail.
 
@@ -124,7 +124,7 @@ If you want to receive notifications on your server when **Charges** are *create
 
 Go to the **Settings** tab in your **PrivacyGate** account and create a **Webhook Subscription** as shown below:
 
-<img src="https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/Docs/webhook_sub.png" />
+<img src="https://raw.githubusercontent.com/privacyshore/PrivacyGate-dotnet/master/Docs/webhook_sub.png" />
 
 :bulb: **Protip:** Consider using [smee.io](https://smee.io/) or [ngrok](https://ngrok.com/) to help you debug webhook callbacks while in development.
 

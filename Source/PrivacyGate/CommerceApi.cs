@@ -55,7 +55,7 @@ namespace PrivacyGate
       /// <summary>
       /// The main class to make calls to the coinbase commerce API.
       /// API Documentation here: https://privacygate.io/docs/api/
-      /// GitHub Project URL here: https://github.com/privacyshore/PrivacyGate-csharp
+      /// GitHub Project URL here: https://github.com/privacyshore/PrivacyGate-dotnet
       /// </summary>
       /// <param name="apiKey">Your secret API key. See: https://privacygate.io/docs/api/#authentication </param>
       public CommerceApi(string apiKey)

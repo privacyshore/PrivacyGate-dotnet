@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion("0.0.0")]
 [assembly: AssemblyInformationalVersion("0.0.0-localbuild built on 1/1/2015 12:00:00 AM")]
 [assembly: AssemblyTrademark("MIT License")]
-[assembly: AssemblyDescription("https://github.com/privacyshore/PrivacyGate-csharp")]
+[assembly: AssemblyDescription("https://github.com/privacyshore/PrivacyGate-dotnet")]
 [assembly: InternalsVisibleTo("PrivacyGate.Tests")]
 namespace System {
     internal static class AssemblyVersionInformation {
@@ -23,7 +23,7 @@ namespace System {
         internal const System.String AssemblyFileVersion = "0.0.0";
         internal const System.String AssemblyInformationalVersion = "0.0.0-localbuild built on 1/1/2015 12:00:00 AM";
         internal const System.String AssemblyTrademark = "MIT License";
-        internal const System.String AssemblyDescription = "https://github.com/privacyshore/PrivacyGate-csharp";
+        internal const System.String AssemblyDescription = "https://github.com/privacyshore/PrivacyGate-dotnet";
         internal const System.String InternalsVisibleTo = "PrivacyGate.Tests";
     }
 }
