@@ -25,6 +25,11 @@ ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 Install-Package PrivacyGate
 ```
 
+Alternatively:
+```powershell
+dotnet add package PrivacyGate
+```
+
 Usage
 -----
 ### Getting Started
