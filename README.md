@@ -226,14 +226,3 @@ public ActionResult Coinbase_Webhook()
    return new HttpStatusCodeResult(HttpStatusCode.OK);   
 }
 ```
-
-
-Building
---------
-* Download the source code.
-* Run `build.cmd`.
-
-Upon successful build, the results will be in the `\__compile` directory. If you want to build NuGet packages, run `build.cmd pack` and the NuGet packages will be in `__package`.
-
----
-*Note: This application/third-party library is not directly supported by PrivacyGate Inc. PrivacyGate Inc. makes no claims about this application/third-party library.  This application/third-party library is not endorsed or certified by PrivacyGate Inc.*
