@@ -1,16 +1,11 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/3nq1hvf67yp0nswg/branch/master?svg=true)](https://ci.appveyor.com/project/bchavez/coinbase-commerce/branch/master) [![Nuget](https://img.shields.io/nuget/v/Coinbase.Commerce.svg)](https://www.nuget.org/packages/Coinbase.Commerce/) [![Users](https://img.shields.io/nuget/dt/Coinbase.Commerce.svg)](https://www.nuget.org/packages/Coinbase.Commerce/) <img src="https://raw.githubusercontent.com/bchavez/Coinbase.Commerce/master/Docs/coinbase_commerce.png" align='right' />
-
-Coinbase.Commerce for .NET and C#
+PrivacyGate for .NET and C#
 =================
 
 Project Description
 -------------------
-:moneybag: A **C#** API library and HTTP client implementation for the [**Coinbase Commerce** API](https://commerce.coinbase.com/docs/).
+:moneybag: A **C#** API library and HTTP client implementation for the [**PrivacyGate** API](https://privacygate.io/docs/).
 
-:loudspeaker: ***HEY!*** Be sure to checkout these other Coinbase API integrations:
-
-* [**Coinbase**](https://github.com/bchavez/Coinbase) - For Coinbase wallet account integration.
-* [**Coinbase.Pro**](https://github.com/bchavez/Coinbase.Pro) - For [retail trading](https://pro.coinbase.com) on [Coinbase Pro](https://pro.coinbase.com). Integration with orders, market data, and real-time WebSocket feeds.
+:loudspeaker: ***HEY!*** Be sure to checkout these other PrivacyGate API integrations:
 
 [1]:https://docs.microsoft.com/en-us/mem/configmgr/core/plan-design/security/enable-tls-1-2-client
 [2]:https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls
@@ -23,25 +18,20 @@ Project Description
 ```csharp
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
-
-#### Crypto Tip Jar
-<a href="https://commerce.coinbase.com/checkout/f16cd3cc-8a70-456b-beeb-ee0129cc4a0c"><img src="https://raw.githubusercontent.com/bchavez/Coinbase.Commerce/master/Docs/tipjar.png" /></a>
-
-
 ### Download & Install
-**Nuget Package [Coinbase.Commerce](https://www.nuget.org/packages/Coinbase.Commerce/)**
+**Nuget Package [PrivacyGate](https://www.nuget.org/packages/PrivacyGate/)**
 
 ```powershell
-Install-Package Coinbase.Commerce
+Install-Package PrivacyGate
 ```
 
 Usage
 -----
 ### Getting Started
-You'll need to create **Coinbase Commerce** account. You can sign up [here](https://commerce.coinbase.com/)!
+You'll need to create **PrivacyGate** account. You can sign up [here](https://dash.privacygate.io/)!
 
 ### Receiving A Simple Crypto Payment
-Suppose you want to charge a customer **1.00 USD** for a candy bar and you'd like to receive payment in cryptocurrency like **Bitcoin**, **Ethereum** or **Litecoin**. The following **C#** creates a checkout page hosted at **Coinbase Commerce**:
+Suppose you want to charge a customer **1.00 USD** for a candy bar and you'd like to receive payment in cryptocurrency like **Bitcoin**, **Ethereum** or **Litecoin**. The following **C#** creates a checkout page hosted at **PrivacyGate**:
 
 ```csharp
 var commerceApi = new CommerceApi(apiKey);
@@ -70,19 +60,19 @@ var response = await commerceApi.CreateChargeAsync(charge);
 // Check for any errors
 if( response.HasError() )
 {
-   // Coinbase says something is wrong. Log the error 
+   // PrivacyGate says something is wrong. Log the error 
    // and report back to the user an error has occurred.
    Console.WriteLine(response.Error.Message);
    Server.Render("Error creating checkout page.", 500);
    return;
 }
 
-// else, send the user to the hosted checkout page at Coinbase.
+// else, send the user to the hosted checkout page at PrivacyGate.
 Server.Redirect(response.Data.HostedUrl);
 ```
-When the customer is redirected to the `HostedUrl` checkout page on **Coinbase** the customer can pick their preference of cryptocurrency to pay with as shown below:  
+When the customer is redirected to the `HostedUrl` checkout page on **PrivacyGate** the customer can pick their preference of cryptocurrency to pay with as shown below:  
 
-<img src="https://raw.githubusercontent.com/bchavez/Coinbase.Commerce/master/Docs/charge.png" />
+<img src="https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/Docs/privacygate-node-sample.gif" />
 
 It's important to keep in mind that the customer has **15 minutes** to complete the payment; otherwise the payment will fail.
 
@@ -98,7 +88,7 @@ In the previous example, if the charge creation was successful, you'll get back 
     "name": "Candy Bar",
     "description": "Sweet Tasting Chocolate",
     "logo_url": null,
-    "hosted_url": "https://commerce.coinbase.com/charges/SOMECODE",
+    "hosted_url": "https://pay.privacygate.io/charges/SOMECODE",
     "created_at": "2018-04-04T19:45:34+00:00",
     "expires_at": "2018-04-04T20:00:34+00:00",
     "confirmed_at": "0001-01-01T00:00:00+00:00",
@@ -130,15 +120,15 @@ In the previous example, if the charge creation was successful, you'll get back 
 Wonderful! Notice the `data.addresses` dictionary of `bitcoin`, `ethereum` and `litecoin` addresses above. So, instead of sending a redirect like the last example, you can use these crypto addresses to generate **QR codes** in your custom **UI**. The same timelimit and rules apply, the customer has **15 minutes** to complete the payment. 
 
 ### Webhooks: 'Don't call us, we'll call you...'
-If you want to receive notifications on your server when **Charges** are *created*, *confirmed* (aka completed), or *failed* you'll need to listen for events from **Coinbase** on your server. You can do this using [Webhooks](https://commerce.coinbase.com/docs/api/#webhooks).
+If you want to receive notifications on your server when **Charges** are *created*, *confirmed* (aka completed), or *failed* you'll need to listen for events from **PrivacyGate** on your server. You can do this using [Webhooks](https://privacygate.io/docs/api/#webhooks).
 
-Go to the **Settings** tab in your **Coinbase Commerce** account and create a **Webhook Subscription** as shown below:
+Go to the **Settings** tab in your **PrivacyGate** account and create a **Webhook Subscription** as shown below:
 
-<img src="https://raw.githubusercontent.com/bchavez/Coinbase.Commerce/master/Docs/webhook_sub.png" />
+<img src="https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/Docs/webhook_sub.png" />
 
 :bulb: **Protip:** Consider using [smee.io](https://smee.io/) or [ngrok](https://ngrok.com/) to help you debug webhook callbacks while in development.
 
-When a `charge:created`, `charge:confirmed`, or `charge:failed` event occurs, **Coinbase** will `POST` **JSON** to your `/callmebackhere` endpoint. The **HTTP** `POST` looks something like:
+When a `charge:created`, `charge:confirmed`, or `charge:failed` event occurs, **PrivacyGate** will `POST` **JSON** to your `/callmebackhere` endpoint. The **HTTP** `POST` looks something like:
 
 ```
 POST /callmebackhere HTTP/1.1
@@ -161,11 +151,11 @@ The value of the `X-Cc-Webhook-Signature` header is a `HMACSHA256` signature of 
 
 The `WebhookHelper` static class included with this library does all the heavy lifting for you. All you need to do is call `Webhookhelper.IsValid()` supplying your **Webhook Shared Secret** key, the `X-Cc-Webhook-Signature` header value in the **HTTP** `POST` above, and finally the ***raw*** **JSON** body in the **HTTP** `POST` above.
 
-The following **C#** code shows how to use the `WebhookHelper` to validate callbacks from **Coinbase**:
+The following **C#** code shows how to use the `WebhookHelper` to validate callbacks from **PrivacyGate**:
 
 ```csharp
 if( WebhookHelper.IsValid("sharedSecretKey", webhookHeaderValue, Request.Body.Json) ){
-   // The request is legit and an authentic message from Coinbase.
+   // The request is legit and an authentic message from PrivacyGate.
    // It's safe to deserialize the JSON body. 
    var webhook = JsonConvert.DeserializeObject<Webhook>(Request.Body.Json);
 
@@ -202,7 +192,40 @@ else {
    // Log the requesting IP address and HTTP body. 
 }
 ```
-Sample callback processing code for ASP.NET can be [**found here**](https://github.com/bchavez/Coinbase.Commerce/issues/1#issuecomment-382912551). Easy peasy! **Happy crypto shopping!** :tada: 
+
+
+Sample callback processing code for ASP.NET can be [**below*]. Easy peasy! **Happy crypto shopping!** :tada: 
+
+```csharp
+
+[Route("some_route/webhook"), HttpPost]
+public ActionResult Coinbase_Webhook()
+{
+   var requestSignature = Request.Headers[HeaderNames.WebhookSignature];
+   Request.InputStream.Seek(0, SeekOrigin.Begin);
+   var json = new StreamReader(Request.InputStream).ReadToEnd();
+
+   if (!WebhookHelper.IsValid(SHARED_SECRET, requestSignature, json)){
+      return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+   }
+
+   var webhook = JsonConvert.DeserializeObject<Webhook>(json);
+  
+   if (webhook.Event.IsChargeConfirmed)
+   {
+      var charge = webhook.Event.DataAs<Charge>();
+  
+      if (charge.Name == "PRODUCT_NAME")
+      {
+         //THE PAYMENT IS SUCCESSFUL
+         //DO SOMETHING TO MARK THE PAYMENT IS COMPLETE
+         //IN YOUR DATABASE
+      }
+   }
+  
+   return new HttpStatusCodeResult(HttpStatusCode.OK);   
+}
+```
 
 
 Building
@@ -213,4 +236,4 @@ Building
 Upon successful build, the results will be in the `\__compile` directory. If you want to build NuGet packages, run `build.cmd pack` and the NuGet packages will be in `__package`.
 
 ---
-*Note: This application/third-party library is not directly supported by Coinbase Inc. Coinbase Inc. makes no claims about this application/third-party library.  This application/third-party library is not endorsed or certified by Coinbase Inc.*
+*Note: This application/third-party library is not directly supported by PrivacyGate Inc. PrivacyGate Inc. makes no claims about this application/third-party library.  This application/third-party library is not endorsed or certified by PrivacyGate Inc.*

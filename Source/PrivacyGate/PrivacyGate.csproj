@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>A .NET implementation of the PrivacyGate API for cryptocurrency payments. PrivacyGate is the easiest and safest way for a business to start accepting digital currency payments. Works with Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC), and Bitcoin Cash (BCH)!</Description>
+    <PackageReleaseNotes>
+    </PackageReleaseNotes>
+    <Version>0.0.0-localbuild</Version>
+    <Authors>Brian Chavez</Authors>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    <CodeAnalysisRuleSet>PrivacyGate.ruleset</CodeAnalysisRuleSet>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyName>PrivacyGate</AssemblyName>
+    <PackageId>PrivacyGate</PackageId>
+    <PackageTags>bitcoin;ethereum;litecoin;bitcoin-cash;privacygate;api;cryptocurrency;payment;money;merchant;checkout;cart;gateway;bank;crypto;</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/Docs/privacygate.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/privacyshore/PrivacyGate-csharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/privacyshore/PrivacyGate-csharp/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/privacyshore/PrivacyGate-csharp</RepositoryUrl>
+    <!--Source Link Settings-->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>false</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <DefineConstants>$(DefineConstants);STANDARD;STANDARD20</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Flurl.Http" Version="3.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Roslynator.Analyzers" Version="1.8.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+</Project>
